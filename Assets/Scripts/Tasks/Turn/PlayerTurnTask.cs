@@ -1,12 +1,8 @@
-using Entities;
 using Lessons.Game;
-using Lessons.Game.Services;
-using Lessons.TurnSystem;
-using Lessons.TurnSystem.Events;
+using Lessons.Tasks;
 using UnityEngine;
 
-namespace Lessons.Tasks.Turn
-{
+
     public sealed class PlayerTurnTask : Task
     {
         private readonly KeyboardInput _input;
@@ -33,4 +29,3 @@ namespace Lessons.Tasks.Turn
             Finish();
         }
     }
-}

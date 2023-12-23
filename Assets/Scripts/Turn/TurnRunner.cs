@@ -1,6 +1,6 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
-using VContainer;
+using Zenject;
 
 namespace Lessons.Turn
 {

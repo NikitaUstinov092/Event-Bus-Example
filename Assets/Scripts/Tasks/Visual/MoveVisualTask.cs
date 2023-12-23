@@ -1,6 +1,4 @@
 using DG.Tweening;
-using Entities;
-using Lessons.Entities.Common.Components;
 using UnityEngine;
 
 namespace Lessons.Tasks.Visual
