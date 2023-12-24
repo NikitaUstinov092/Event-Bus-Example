@@ -1,6 +1,8 @@
-using Lessons.Visual;
+using Tasks.Visual;
+using TurnSystem.Events;
+using Visual;
 
-namespace Lessons.TurnSystem.Handlers.Visual
+namespace TurnSystem.Handlers.Visual
 {
     public class DealDamageVisualHandler : BaseHandler<DealDamageEvent>
     {

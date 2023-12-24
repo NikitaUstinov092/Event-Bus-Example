@@ -1,8 +1,7 @@
-using Lessons.Tasks.Turn;
+using Tasks.Turn;
 using Zenject;
 
-
-namespace Lessons.Turn
+namespace Turn
 {
     public sealed class TurnPipelineInstaller : IInitializable
     {

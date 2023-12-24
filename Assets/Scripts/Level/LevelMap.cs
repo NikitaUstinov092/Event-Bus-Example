@@ -1,13 +1,16 @@
 ﻿
-    public sealed class LevelMap
+    namespace Level
     {
-        public EntityMap Entities { get; }
-        
-        public TileMap Tiles { get; }
-
-        public LevelMap(EntityMap entities, TileMap tiles)
+        public sealed class LevelMap
         {
-            Entities = entities;
-            Tiles = tiles;
+            public EntityMap Entities { get; }
+        
+            public TileMap Tiles { get; }
+
+            public LevelMap(EntityMap entities, TileMap tiles)
+            {
+                Entities = entities;
+                Tiles = tiles;
+            }
         }
     }

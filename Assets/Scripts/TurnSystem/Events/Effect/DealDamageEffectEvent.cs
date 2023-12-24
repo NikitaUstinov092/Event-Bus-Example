@@ -1,6 +1,9 @@
 using System;
+using Entity;
 
-[Serializable]
+namespace TurnSystem.Events.Effect
+{
+    [Serializable]
     public struct DealDamageEffectEvent : IEffect
     {
         public IEntity Source { get; set; }
@@ -8,3 +11,4 @@ using System;
         
         public int extraDamage;
     }
+}

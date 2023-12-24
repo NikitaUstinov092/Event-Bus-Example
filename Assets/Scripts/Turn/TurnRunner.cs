@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-namespace Lessons.Turn
+namespace Turn
 {
     public sealed class TurnRunner : MonoBehaviour
     {

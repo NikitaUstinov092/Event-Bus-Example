@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lessons.Tasks.Turn
+namespace Tasks.Turn
 {
     public sealed class StartTurnTask : Task
     {

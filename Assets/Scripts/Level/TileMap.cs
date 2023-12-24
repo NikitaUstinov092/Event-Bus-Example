@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
+namespace Level
+{
     public sealed class TileMap : MonoBehaviour
     {
         private readonly Vector3 _positionOffset = Vector2.one * 0.5f;
@@ -24,4 +25,5 @@ using UnityEngine.Tilemaps;
             return tilemap.CellToWorld((Vector3Int)coordinates) + _positionOffset;
         }
     }
+}
 

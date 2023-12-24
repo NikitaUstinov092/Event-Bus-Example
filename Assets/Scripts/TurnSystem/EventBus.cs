@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
+namespace TurnSystem
+{
     public class EventBus
     {
         private readonly Dictionary<Type, IEventHandlerCollection> _handlers = new();
@@ -110,3 +111,4 @@ using UnityEngine;
             }
         }
     }
+}

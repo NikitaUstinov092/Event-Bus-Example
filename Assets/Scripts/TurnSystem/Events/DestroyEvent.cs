@@ -1,10 +1,15 @@
 
-    public readonly struct DestroyEvent
-    {
-        public readonly IEntity Entity;
+    using Entity;
 
-        public DestroyEvent(IEntity entity)
+    namespace TurnSystem.Events
+    {
+        public readonly struct DestroyEvent
         {
-            Entity = entity;
+            public readonly IEntity Entity;
+
+            public DestroyEvent(IEntity entity)
+            {
+                Entity = entity;
+            }
         }
     }

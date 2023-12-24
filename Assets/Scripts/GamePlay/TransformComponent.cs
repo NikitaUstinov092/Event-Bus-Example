@@ -1,6 +1,7 @@
 using UnityEngine;
 
-
+namespace GamePlay
+{
     public sealed class TransformComponent
     {
         public Transform Value { get; }
@@ -10,3 +11,4 @@ using UnityEngine;
             Value = transform;
         }
     }
+}

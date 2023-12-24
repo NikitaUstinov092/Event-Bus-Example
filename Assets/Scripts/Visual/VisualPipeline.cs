@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Lessons.Tasks;
-using Lessons.Tasks.Visual;
 using Sirenix.OdinInspector;
+using Tasks;
+using Tasks.Visual;
 
-namespace Lessons.Visual
+namespace Visual
 {
     public sealed class VisualPipeline
     {

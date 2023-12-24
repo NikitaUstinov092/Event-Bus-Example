@@ -1,9 +1,12 @@
 
-    public interface IEntity
+    namespace Entity
     {
-        T Get<T>();
+        public interface IEntity
+        {
+            T Get<T>();
 
-        bool TryGet<T>(out T element);
+            bool TryGet<T>(out T element);
 
-        object[] GetAll();
+            object[] GetAll();
+        }
     }

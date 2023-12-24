@@ -1,8 +1,10 @@
 using DG.Tweening;
-using Lessons.Tasks.Visual;
+using Entity;
+using GamePlay;
 using UnityEngine;
 
-
+namespace Tasks.Visual
+{
     public sealed class DealDamageVisualTask : VisualTask
     {
         public override bool Sticky { get; protected set; } = true;
@@ -21,3 +23,4 @@ using UnityEngine;
             _transform.Value.DOPunchScale(Vector3.one * 1.3f, _duration, 5).OnComplete(Finish);
         }
     }
+}

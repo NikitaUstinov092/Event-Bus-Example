@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Lessons.Tasks;
 using Sirenix.OdinInspector;
+using Tasks;
 
-namespace Lessons.Turn
+namespace Turn
 {
     public sealed class TurnPipeline
     {

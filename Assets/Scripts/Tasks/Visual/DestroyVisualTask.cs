@@ -1,7 +1,9 @@
 using DG.Tweening;
+using Entity;
+using GamePlay;
 using UnityEngine;
 
-namespace Lessons.Tasks.Visual
+namespace Tasks.Visual
 {
     public sealed class DestroyVisualTask : VisualTask
     {

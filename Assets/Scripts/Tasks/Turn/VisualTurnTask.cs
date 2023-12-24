@@ -1,7 +1,7 @@
-using Lessons.Visual;
 using UnityEngine;
+using Visual;
 
-namespace Lessons.Tasks.Turn
+namespace Tasks.Turn
 {
     public sealed class VisualTurnTask : Task
     {

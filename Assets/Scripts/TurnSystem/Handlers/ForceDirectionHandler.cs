@@ -1,5 +1,9 @@
-using Lessons.TurnSystem.Handlers;
+using Entity.Components;
+using Level;
+using TurnSystem.Events;
 
+namespace TurnSystem.Handlers
+{
     public class ForceDirectionHandler : BaseHandler<ForceDirectionEvent>
     {
         private readonly LevelMap _levelMap;
@@ -24,3 +28,4 @@ using Lessons.TurnSystem.Handlers;
             }
         }
     }
+}

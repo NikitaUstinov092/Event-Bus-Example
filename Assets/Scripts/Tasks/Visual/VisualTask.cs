@@ -1,4 +1,4 @@
-namespace Lessons.Tasks.Visual
+namespace Tasks.Visual
 {
     public abstract class VisualTask : Task
     {

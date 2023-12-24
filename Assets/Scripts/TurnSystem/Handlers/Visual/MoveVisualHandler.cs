@@ -1,7 +1,9 @@
-using Lessons.Tasks.Visual;
-using Lessons.Visual;
+using Level;
+using Tasks.Visual;
+using TurnSystem.Events;
+using Visual;
 
-namespace Lessons.TurnSystem.Handlers.Visual
+namespace TurnSystem.Handlers.Visual
 {
     public sealed class MoveVisualHandler : BaseHandler<MoveEvent>
     {

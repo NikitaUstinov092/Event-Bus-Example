@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Lessons.Tasks.Visual
+namespace Tasks.Visual
 {
     public sealed class CompositeVisualTask : VisualTask
     {

@@ -1,16 +1,19 @@
 
-    using Lessons.TurnSystem.Handlers;
+    using TurnSystem.Events;
 
-    public sealed class CollideHandler : BaseHandler<CollideEvent>
-    {
-        public CollideHandler(EventBus eventBus) : base(eventBus)
-        {
+    namespace TurnSystem.Handlers
+     {
+         public sealed class CollideHandler : BaseHandler<CollideEvent>
+         {
+             public CollideHandler(EventBus eventBus) : base(eventBus)
+             {
             
-        }
+             }
 
-        protected override void HandleEvent(CollideEvent evt)
-        {
-            EventBus.RaiseEvent(new DealDamageEvent(evt.Entity, 1));
-            EventBus.RaiseEvent(new DealDamageEvent(evt.Target, 1));
-        }
-    }
+             protected override void HandleEvent(CollideEvent evt)
+             {
+                 EventBus.RaiseEvent(new DealDamageEvent(evt.Entity, 1));
+                 EventBus.RaiseEvent(new DealDamageEvent(evt.Target, 1));
+             }
+         }
+     }

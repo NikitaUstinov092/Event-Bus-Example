@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Entity;
+using UnityEngine;
 
-
+namespace GamePlay
+{
     public sealed class PlayerService : MonoBehaviour
     {
         public IEntity Player => player;
@@ -9,20 +11,21 @@
         private Entity player;
     }
 
-internal class Entity : IEntity //TO DO дописать
-{
-    T IEntity.Get<T>()
+    internal class Entity : IEntity //TO DO дописать
     {
-        throw new System.NotImplementedException();
-    }
+        T IEntity.Get<T>()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    bool IEntity.TryGet<T>(out T element)
-    {
-        throw new System.NotImplementedException();
-    }
+        bool IEntity.TryGet<T>(out T element)
+        {
+            throw new System.NotImplementedException();
+        }
 
-    object[] IEntity.GetAll()
-    {
-        throw new System.NotImplementedException();
+        object[] IEntity.GetAll()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

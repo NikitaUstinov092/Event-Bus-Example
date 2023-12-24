@@ -1,5 +1,8 @@
+using Entity;
 using UnityEngine;
 
+namespace TurnSystem.Events
+{
     public readonly struct MoveEvent
     {
         public readonly IEntity Entity;
@@ -13,3 +16,4 @@ using UnityEngine;
             IsForced = isForced;
         }
     }
+}

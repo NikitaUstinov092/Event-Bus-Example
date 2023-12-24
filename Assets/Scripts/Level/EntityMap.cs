@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using Entity;
 using UnityEngine;
 
+namespace Level
+{
     public sealed class EntityMap
     {
         private readonly Dictionary<Vector2Int, IEntity> _entities = new();
@@ -25,3 +28,4 @@ using UnityEngine;
             _entities[coordinates] = entity;
         }
     }
+}

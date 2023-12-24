@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Lessons.Game
+namespace GamePlay.Input
 {
     public sealed class KeyboardInput : MonoBehaviour
     {
@@ -11,22 +11,22 @@ namespace Lessons.Game
         {
             var movement = new Vector2Int();
             
-            if (Input.GetKeyUp(KeyCode.UpArrow))
+            if (UnityEngine.Input.GetKeyUp(KeyCode.UpArrow))
             {
                 movement.y += 1;
             }
             
-            if (Input.GetKeyUp(KeyCode.DownArrow))
+            if (UnityEngine.Input.GetKeyUp(KeyCode.DownArrow))
             {
                 movement.y -= 1;
             }
             
-            if (Input.GetKeyUp(KeyCode.RightArrow))
+            if (UnityEngine.Input.GetKeyUp(KeyCode.RightArrow))
             {
                 movement.x += 1;
             }
             
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            if (UnityEngine.Input.GetKeyUp(KeyCode.LeftArrow))
             {
                 movement.x -= 1;
             }

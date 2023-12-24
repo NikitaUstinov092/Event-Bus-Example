@@ -1,6 +1,6 @@
 using System;
 
-namespace Lessons.Tasks
+namespace Tasks
 {
     public abstract class Task
     {

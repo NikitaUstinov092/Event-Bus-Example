@@ -1,7 +1,10 @@
-using Lessons.TurnSystem.Handlers;
+using Entity.Components;
+using Level;
+using TurnSystem.Events;
 
-
-public sealed class ApplyDirectionHandler : BaseHandler<ApplyDirectionEvent>
+namespace TurnSystem.Handlers
+{
+    public sealed class ApplyDirectionHandler : BaseHandler<ApplyDirectionEvent>
     {
         private readonly LevelMap _levelMap;
 
@@ -27,3 +30,4 @@ public sealed class ApplyDirectionHandler : BaseHandler<ApplyDirectionEvent>
             }
         }
     }
+}

@@ -1,5 +1,8 @@
+using Entity;
 using UnityEngine;
 
+namespace TurnSystem.Events
+{
     public readonly struct ApplyDirectionEvent
     {
         public readonly IEntity Entity;
@@ -11,3 +14,4 @@ using UnityEngine;
             Direction = direction;
         }
     }
+}
