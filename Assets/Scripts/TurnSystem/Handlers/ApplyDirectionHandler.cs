@@ -1,17 +1,14 @@
 using Entity.Components;
 using Level;
 using TurnSystem.Events;
+using Zenject;
 
 namespace TurnSystem.Handlers
 {
     public sealed class ApplyDirectionHandler : BaseHandler<ApplyDirectionEvent>
     {
+        [Inject]
         private readonly LevelMap _levelMap;
-
-        public ApplyDirectionHandler( EventBus eventBus, LevelMap levelMap) : base(eventBus)
-        {
-            _levelMap = levelMap;
-        }
         
         protected override void HandleEvent(ApplyDirectionEvent evt)
         {
@@ -26,7 +23,7 @@ namespace TurnSystem.Handlers
             
             if (_levelMap.Tiles.IsWalkable(targetCoordinates))
             {
-                EventBus.RaiseEvent(new MoveEvent(evt.Entity, targetCoordinates));
+               EventBus.RaiseEvent(new MoveEvent(evt.Entity, targetCoordinates));
             }
         }
     }

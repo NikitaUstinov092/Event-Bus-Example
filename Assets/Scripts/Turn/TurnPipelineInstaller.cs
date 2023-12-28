@@ -1,14 +1,27 @@
+using Entity;
+using GamePlay;
+using GamePlay.Input;
 using Tasks.Turn;
+using TurnSystem;
 using Zenject;
 
 namespace Turn
 {
     public sealed class TurnPipelineInstaller : IInitializable
     {
-        private readonly TurnPipeline _turnPipeline;
-        private readonly DiContainer _container;
+        private TurnPipeline _turnPipeline;
+        private DiContainer _container;
         
-        public TurnPipelineInstaller(TurnPipeline turnPipeline, DiContainer container)
+        [Inject]
+        private KeyboardInput _input;
+        [Inject]
+        private PlayerService _playerService;
+        [Inject]
+        private EventBus _eventBus;
+        
+        
+        [Inject]
+        public void Construct(TurnPipeline turnPipeline, DiContainer container)
         {
             _turnPipeline = turnPipeline;
             _container = container;
@@ -16,9 +29,11 @@ namespace Turn
         
         void IInitializable.Initialize()
         {
+            var pt = new PlayerTurnTask(_input,_eventBus, _playerService);
             _turnPipeline.AddTask(new StartTurnTask());
-            /*_turnPipeline.AddTask(_objectResolver.CreateInstance<PlayerTurnTask>());
-            _turnPipeline.AddTask(_objectResolver.CreateInstance<VisualTurnTask>());*/
+            
+            _turnPipeline.AddTask(pt);
+           // _turnPipeline.AddTask(_container.Resolve<VisualTurnTask>());
             _turnPipeline.AddTask(new FinishTurnTask());
         }
     }

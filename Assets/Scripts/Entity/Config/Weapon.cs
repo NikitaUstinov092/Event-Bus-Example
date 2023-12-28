@@ -1,7 +1,7 @@
 using TurnSystem.Events.Effect;
 using UnityEngine;
 
-namespace Lessons.Entities.Config
+namespace Entity.Config
 {
     [CreateAssetMenu(fileName = "New Weapon", menuName = "Lesson19/Weapon")]
     public sealed class Weapon : ScriptableObject

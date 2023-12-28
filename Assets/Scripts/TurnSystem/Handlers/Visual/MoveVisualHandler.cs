@@ -1,16 +1,17 @@
 using Level;
 using Tasks.Visual;
 using TurnSystem.Events;
-using Visual;
+using Zenject;
 
 namespace TurnSystem.Handlers.Visual
 {
     public sealed class MoveVisualHandler : BaseHandler<MoveEvent>
     {
-        private readonly VisualPipeline _visualPipeline;
-        private readonly LevelMap _levelMap;
+        private VisualPipeline _visualPipeline;
+        private LevelMap _levelMap;
         
-        public MoveVisualHandler(EventBus eventBus, VisualPipeline visualPipeline, LevelMap levelMap) : base(eventBus)
+        [Inject]
+        public void Construct(VisualPipeline visualPipeline, LevelMap levelMap)
         {
             _visualPipeline = visualPipeline;
             _levelMap = levelMap;

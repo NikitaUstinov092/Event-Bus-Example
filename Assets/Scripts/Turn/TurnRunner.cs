@@ -7,10 +7,10 @@ namespace Turn
     public sealed class TurnRunner : MonoBehaviour
     {
         [SerializeField]
-        private bool runOnStart = true;
+        private bool runOnStart;
 
         [SerializeField]
-        private bool runOnFinish = true;
+        private bool runOnFinish;
         
         private TurnPipeline _turnPipeline;
 
@@ -37,7 +37,7 @@ namespace Turn
                 Run();
             }
         }
-
+        
         [Button]
         public void Run()
         {

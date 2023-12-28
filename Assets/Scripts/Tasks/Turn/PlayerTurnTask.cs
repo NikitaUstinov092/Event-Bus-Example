@@ -4,15 +4,17 @@ using GamePlay.Input;
 using TurnSystem;
 using TurnSystem.Events;
 using UnityEngine;
+using Zenject;
 
 namespace Tasks.Turn
 {
     public sealed class PlayerTurnTask : Task
     {
-        private readonly KeyboardInput _input;
-        private readonly IEntity _player;
-        private readonly EventBus _eventBus;
+        private KeyboardInput _input;
+        private IEntity _player;
+        private EventBus _eventBus;
         
+       
         public PlayerTurnTask(KeyboardInput input, EventBus eventBus, PlayerService playerService)
         {
             _input = input;
@@ -28,7 +30,12 @@ namespace Tasks.Turn
         private void OnMovePreformed(Vector2Int direction)
         {
             _input.MovePerformed -= OnMovePreformed;
-
+           /*_player.TryGet<TransformComponent>(out TransformComponent element);
+           if (element == null)
+           {
+               Debug.Log("Null");
+           }*/
+          
             _eventBus.RaiseEvent(new ApplyDirectionEvent(_player, direction));
             Finish();
         }

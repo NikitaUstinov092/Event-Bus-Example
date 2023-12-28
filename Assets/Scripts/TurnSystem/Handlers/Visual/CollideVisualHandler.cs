@@ -1,19 +1,14 @@
 using Entity.Components;
 using Tasks.Visual;
 using TurnSystem.Events;
-using Visual;
+using Zenject;
 
 namespace TurnSystem.Handlers.Visual
 {
     public sealed class CollideVisualHandler : BaseHandler<CollideEvent>
     {
+        [Inject]
         private readonly VisualPipeline _visualPipeline;
-        
-        public CollideVisualHandler(EventBus eventBus, VisualPipeline visualPipeline) : base(eventBus)
-        {
-            _visualPipeline = visualPipeline;
-        }
-
         protected override void HandleEvent(CollideEvent evt)
         {
             var sourcePosition = evt.Entity.Get<PositionComponent>();
@@ -24,4 +19,5 @@ namespace TurnSystem.Handlers.Visual
             _visualPipeline.AddTask(new MoveVisualTask(evt.Entity, sourcePosition.Value, 0.15f));
         }
     }
+    
 }

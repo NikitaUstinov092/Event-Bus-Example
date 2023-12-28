@@ -13,7 +13,6 @@ namespace Turn
         private readonly List<Task> _tasks = new();
 
         private int _currentIndex = -1;
-
         public void AddTask(Task task)
         {
             _tasks.Add(task);
@@ -39,8 +38,8 @@ namespace Turn
 
         private void OnTaskFinished(Task task)
         {
-            ++_currentIndex;
-            RunNextTask();
+             ++_currentIndex;
+             RunNextTask();
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Atomic.Implementations;
-using Lessons.Entities.Config;
+using Entity.Config;
 
 namespace Entity.Model
 {

@@ -1,19 +1,14 @@
 using Entity.Components;
 using Tasks.Visual;
 using TurnSystem.Events;
-using Visual;
+using Zenject;
 
 namespace TurnSystem.Handlers.Visual
 {
     public sealed class AttackVisualHandler : BaseHandler<AttackEvent>
     {
+        [Inject]
         private readonly VisualPipeline _visualPipeline;
-
-        public AttackVisualHandler(EventBus eventBus, VisualPipeline visualPipeline) : base(eventBus)
-        {
-            _visualPipeline = visualPipeline;
-        }
-
         protected override void HandleEvent(AttackEvent evt)
         {
             var sourcePosition = evt.Entity.Get<PositionComponent>();

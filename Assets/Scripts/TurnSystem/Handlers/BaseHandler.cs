@@ -5,12 +5,8 @@ namespace TurnSystem.Handlers
 {
     public abstract class BaseHandler<T> : IInitializable, IDisposable
     {
+        [Inject]
         protected EventBus EventBus { get; }
-
-        protected BaseHandler(EventBus eventBus)
-        {
-            EventBus = eventBus;
-        }
 
         void IInitializable.Initialize()
         {

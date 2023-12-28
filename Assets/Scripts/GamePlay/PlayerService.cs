@@ -1,31 +1,29 @@
 ﻿using Entity;
+using Entity.Player;
+using Sirenix.OdinInspector;
+using TurnSystem;
+using TurnSystem.Events;
 using UnityEngine;
+using Zenject;
 
 namespace GamePlay
 {
     public sealed class PlayerService : MonoBehaviour
     {
         public IEntity Player => player;
-        
+
         [SerializeField]
-        private Entity player;
-    }
-
-    internal class Entity : IEntity //TO DO дописать
-    {
-        T IEntity.Get<T>()
+        private MonoEntity player;
+        
+        /*
+        [Inject]
+        private EventBus _eventBus;
+        
+        
+        [Button]
+        private void Raise()
         {
-            throw new System.NotImplementedException();
-        }
-
-        bool IEntity.TryGet<T>(out T element)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        object[] IEntity.GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
+            _eventBus.RaiseEvent(new ApplyDirectionEvent(player, new Vector2Int(0,1)));
+        }*/
     }
 }

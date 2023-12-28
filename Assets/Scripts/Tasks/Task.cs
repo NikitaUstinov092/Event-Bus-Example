@@ -12,6 +12,7 @@ namespace Tasks
             OnRun();
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         protected virtual void Finish()
         {
             if (_callback is not null)

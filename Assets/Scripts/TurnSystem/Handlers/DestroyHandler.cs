@@ -1,17 +1,14 @@
   using Entity.Components;
   using Level;
   using TurnSystem.Events;
+  using Zenject;
 
   namespace TurnSystem.Handlers
    {
        public sealed class DestroyHandler : BaseHandler<DestroyEvent>
        {
+           [Inject]
            private readonly LevelMap _levelMap;
-        
-           public DestroyHandler(EventBus eventBus, LevelMap levelMap) : base(eventBus)
-           {
-               _levelMap = levelMap;
-           }
         
            protected override void HandleEvent(DestroyEvent evt)
            {

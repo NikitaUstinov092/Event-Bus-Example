@@ -1,17 +1,14 @@
 using Entity.Components;
 using Level;
 using TurnSystem.Events;
+using Zenject;
 
 namespace TurnSystem.Handlers
 {
     public class ForceDirectionHandler : BaseHandler<ForceDirectionEvent>
     {
+        [Inject]
         private readonly LevelMap _levelMap;
-
-        public ForceDirectionHandler(LevelMap levelMap, EventBus eventBus) : base(eventBus)
-        {
-            _levelMap = levelMap;
-        }
 
         protected override void HandleEvent(ForceDirectionEvent evt)
         {
