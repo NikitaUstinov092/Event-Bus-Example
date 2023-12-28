@@ -19,9 +19,9 @@
                  _levelMap.Entities.SetEntity(evt.Coordinates, evt.Entity);
                  coordinates.Value = evt.Coordinates;
 
-                  /*// Visual
+                  // Visual
                   var position = evt.Entity.Get<PositionComponent>();
-                  position.Value = _levelMap.Tiles.CoordinatesToPosition(evt.Coordinates);*/
+                  position.Value = _levelMap.Tiles.CoordinatesToPosition(evt.Coordinates);
                  
                  if (!_levelMap.Tiles.IsWalkable(evt.Coordinates))
                  {

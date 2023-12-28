@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Entity;
+using Entity.Components;
 using GamePlay;
 using UnityEngine;
 

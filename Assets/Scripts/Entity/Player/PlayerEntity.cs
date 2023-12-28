@@ -15,7 +15,8 @@ namespace Entity.Player
                 new StatsComponent(model.stats),
                 new WeaponComponent(model.attack.weapon), 
                 new PositionComponent(model.position.transform),
-                new CoordinatesComponent(model.position.coordinates));
+                new CoordinatesComponent(model.position.coordinates),
+            new TestComponent("NTCN"));
         }
     }
 }

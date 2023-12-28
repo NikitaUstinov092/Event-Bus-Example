@@ -1,8 +1,4 @@
-using Entity;
-using GamePlay;
-using GamePlay.Input;
 using Tasks.Turn;
-using TurnSystem;
 using Zenject;
 
 namespace Turn
@@ -25,7 +21,7 @@ namespace Turn
             _turnPipeline.AddTask(new StartTurnTask());
             
             _turnPipeline.AddTask(_container.Resolve<PlayerTurnTask>());
-            _turnPipeline.AddTask(_container.Resolve<VisualTurnTask>());
+           // _turnPipeline.AddTask(_container.Resolve<VisualTurnTask>());
             _turnPipeline.AddTask(new FinishTurnTask());
         }
     }

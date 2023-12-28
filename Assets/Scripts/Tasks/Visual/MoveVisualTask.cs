@@ -2,7 +2,6 @@ using DG.Tweening;
 using Entity;
 using Entity.Components;
 using UnityEngine;
-using TransformComponent = GamePlay.TransformComponent;
 
 namespace Tasks.Visual
 {
@@ -16,15 +15,10 @@ namespace Tasks.Visual
         
         public MoveVisualTask(IEntity entity, Vector3 position, float duration, bool sticky = false)
         {
-            entity.TryGet(out PositionComponent a);
-            Debug.Log(a);
-            Debug.Log(entity.GetAll().Length);
-            
             _transform = entity.Get<TransformComponent>();
             _position = position;
-            
             _duration = duration;
-
+            
             Sticky = sticky;
         }
         

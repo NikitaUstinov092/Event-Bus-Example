@@ -1,4 +1,3 @@
-using Entity.Player;
 using GamePlay;
 using GamePlay.Input;
 using Level;
@@ -29,14 +28,14 @@ namespace DI
 
         private void ConfigureLevel()
         {
-            Container.Bind<TileMap>().FromComponentInHierarchy().AsSingle();;
-            Container.Bind<EntityMap>().AsSingle();;
-            Container.Bind<LevelMap>().AsSingle();;
+            Container.Bind<TileMap>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<EntityMap>().AsSingle();
+            Container.Bind<LevelMap>().AsSingle();
         }
 
         private void ConfigurePlayer()
         {
-            Container.Bind<KeyboardInput>().FromComponentInHierarchy().AsSingle();;
+            Container.Bind<KeyboardInput>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerService>().FromComponentInHierarchy().AsSingle();
         }
 
@@ -67,9 +66,9 @@ namespace DI
         {
             Container.Bind<VisualPipeline>().AsSingle();
             Container.BindInterfacesAndSelfTo<MoveVisualHandler>().AsSingle();
-            /*Container.BindInterfacesAndSelfTo<DestroyVisualHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DestroyVisualHandler>().AsSingle();
             Container.BindInterfacesAndSelfTo<DealDamageVisualHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AttackVisualHandler>().AsSingle();*/
+            Container.BindInterfacesAndSelfTo<AttackVisualHandler>().AsSingle();
         }
     }
 }
