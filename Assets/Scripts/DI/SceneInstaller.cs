@@ -21,10 +21,10 @@ namespace DI
             ConfigurePlayer();
             ConfigureHandlers();
             ConfigureTurn();
-           // ConfigureVisual();
-            
+            ConfigureVisual();
+           
             Container.Bind<PlayerTurnTask>().AsSingle();
-          //  Container.Bind<VisualTurnTask>().AsSingle();
+            Container.Bind<VisualTurnTask>().AsSingle();
         }
 
         private void ConfigureLevel()
@@ -67,9 +67,9 @@ namespace DI
         {
             Container.Bind<VisualPipeline>().AsSingle();
             Container.BindInterfacesAndSelfTo<MoveVisualHandler>().AsSingle();
-            Container.Bind<DestroyVisualHandler>().AsSingle();
-            Container.Bind<DealDamageVisualHandler>().AsSingle();
-            Container.Bind<AttackVisualHandler>().AsSingle();
+            /*Container.BindInterfacesAndSelfTo<DestroyVisualHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DealDamageVisualHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AttackVisualHandler>().AsSingle();*/
         }
     }
 }

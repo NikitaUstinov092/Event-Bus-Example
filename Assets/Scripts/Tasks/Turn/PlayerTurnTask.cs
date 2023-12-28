@@ -14,8 +14,8 @@ namespace Tasks.Turn
         private IEntity _player;
         private EventBus _eventBus;
         
-       
-        public PlayerTurnTask(KeyboardInput input, EventBus eventBus, PlayerService playerService)
+       [Inject]
+        public void Construct (KeyboardInput input, EventBus eventBus, PlayerService playerService)
         {
             _input = input;
             _player = playerService.Player;
@@ -30,11 +30,6 @@ namespace Tasks.Turn
         private void OnMovePreformed(Vector2Int direction)
         {
             _input.MovePerformed -= OnMovePreformed;
-           /*_player.TryGet<TransformComponent>(out TransformComponent element);
-           if (element == null)
-           {
-               Debug.Log("Null");
-           }*/
           
             _eventBus.RaiseEvent(new ApplyDirectionEvent(_player, direction));
             Finish();

@@ -1,7 +1,8 @@
 using DG.Tweening;
 using Entity;
-using GamePlay;
+using Entity.Components;
 using UnityEngine;
+using TransformComponent = GamePlay.TransformComponent;
 
 namespace Tasks.Visual
 {
@@ -15,8 +16,13 @@ namespace Tasks.Visual
         
         public MoveVisualTask(IEntity entity, Vector3 position, float duration, bool sticky = false)
         {
+            entity.TryGet(out PositionComponent a);
+            Debug.Log(a);
+            Debug.Log(entity.GetAll().Length);
+            
             _transform = entity.Get<TransformComponent>();
             _position = position;
+            
             _duration = duration;
 
             Sticky = sticky;
@@ -24,7 +30,8 @@ namespace Tasks.Visual
         
         protected override void OnRun()
         {
-            _transform.Value.DOMove(_position, _duration).OnComplete(Finish);
+           _transform.Value.DOMove(_position, _duration).OnComplete(Finish);
         }
+        
     }
 }

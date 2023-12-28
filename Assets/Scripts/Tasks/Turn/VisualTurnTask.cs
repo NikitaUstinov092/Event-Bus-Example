@@ -9,7 +9,6 @@ namespace Tasks.Turn
         [Inject]
         private readonly VisualPipeline _visualPipeline;
         
-        
         protected override void OnRun()
         {
             Debug.Log("Visual started!");

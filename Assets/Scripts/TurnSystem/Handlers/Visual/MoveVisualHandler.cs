@@ -1,6 +1,8 @@
+using GamePlay;
 using Level;
 using Tasks.Visual;
 using TurnSystem.Events;
+using UnityEngine;
 using Zenject;
 
 namespace TurnSystem.Handlers.Visual
@@ -20,6 +22,7 @@ namespace TurnSystem.Handlers.Visual
         protected override void HandleEvent(MoveEvent evt)
         {
             var targetPosition = _levelMap.Tiles.CoordinatesToPosition(evt.Coordinates);
+            
             _visualPipeline.AddTask(new MoveVisualTask(evt.Entity, targetPosition, 0.3f, evt.IsForced));
         }
     }
