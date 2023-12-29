@@ -10,13 +10,12 @@ namespace Entity.Player
         private void Awake()
         {
             var model = GetComponent<PlayerModel>();
-            AddRange(new TransformComponent(transform), 
+            AddRange(new TransformComponent(transform),
                 new PositionComponent(model.position.transform),
                 new StatsComponent(model.stats),
-                new WeaponComponent(model.attack.weapon), 
+                new WeaponComponent(model.attack.weapon),
                 new PositionComponent(model.position.transform),
-                new CoordinatesComponent(model.position.coordinates),
-            new TestComponent("NTCN"));
+                new CoordinatesComponent(model.position.coordinates));
         }
     }
 }

@@ -1,8 +1,7 @@
-
-    using Entity.Components;
-    using Level;
-    using TurnSystem.Events;
-    using Zenject;
+using Entity.Components;
+using Level;
+using TurnSystem.Events;
+using Zenject;
 
     namespace TurnSystem.Handlers
      {
@@ -18,12 +17,8 @@
                  _levelMap.Entities.RemoveEntity(coordinates.Value);
                  _levelMap.Entities.SetEntity(evt.Coordinates, evt.Entity);
                  coordinates.Value = evt.Coordinates;
-
-                  // Visual
-                  var position = evt.Entity.Get<PositionComponent>();
-                  position.Value = _levelMap.Tiles.CoordinatesToPosition(evt.Coordinates);
                  
-                 if (!_levelMap.Tiles.IsWalkable(evt.Coordinates))
+                 if (!_levelMap.Tiles.IsWalkable(evt.Coordinates)) // Если стоять нельзя убить сущность
                  {
                      EventBus.RaiseEvent(new DestroyEvent(evt.Entity));
                  }

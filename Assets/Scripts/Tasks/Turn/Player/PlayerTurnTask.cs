@@ -10,12 +10,12 @@ namespace Tasks.Turn
 {
     public sealed class PlayerTurnTask : Task
     {
-        private KeyboardInput _input;
+        private IMoveInput _input;
         private IEntity _player;
         private EventBus _eventBus;
         
-       [Inject]
-        public void Construct (KeyboardInput input, EventBus eventBus, PlayerService playerService)
+        [Inject]
+        public void Construct (IMoveInput input, EventBus eventBus, PlayerService playerService)
         {
             _input = input;
             _player = playerService.Player;

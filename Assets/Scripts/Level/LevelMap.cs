@@ -1,13 +1,16 @@
 ﻿
+    using Zenject;
+
     namespace Level
     {
         public sealed class LevelMap
         {
-            public EntityMap Entities { get; }
+            public EntityMap Entities { get; private set; }
         
-            public TileMap Tiles { get; }
+            public TileMap Tiles { get; private set;}
 
-            public LevelMap(EntityMap entities, TileMap tiles)
+            [Inject]
+            public void Construct(EntityMap entities,TileMap tiles)
             {
                 Entities = entities;
                 Tiles = tiles;

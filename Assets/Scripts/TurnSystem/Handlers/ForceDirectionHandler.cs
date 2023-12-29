@@ -1,6 +1,7 @@
 using Entity.Components;
 using Level;
 using TurnSystem.Events;
+using UnityEngine;
 using Zenject;
 
 namespace TurnSystem.Handlers
@@ -14,7 +15,9 @@ namespace TurnSystem.Handlers
         {
             var coordinates = evt.Entity.Get<CoordinatesComponent>();
             var targetCoordinates = coordinates.Value + evt.Direction;
-
+            
+            Debug.Log(targetCoordinates);
+            
             if (_levelMap.Entities.HasEntity(targetCoordinates))
             {
                 EventBus.RaiseEvent(new CollideEvent(evt.Entity, _levelMap.Entities.GetEntity(targetCoordinates)));

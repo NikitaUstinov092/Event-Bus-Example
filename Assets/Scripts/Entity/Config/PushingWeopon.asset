@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: PushingWeopon
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 838521174942285824
+  - rid: 838521220184932353
   references:
     version: 2
     RefIds:
-    - rid: 838521174942285824
-      type: {class: PushEffectEvent, ns: TurnSystem.Events.Effect, asm: Assembly-CSharp}
+    - rid: 838521220184932353
+      type: {class: DealDamageEffectEvent, ns: TurnSystem.Events.Effect, asm: Assembly-CSharp}
+      data:
+        extraDamage: 0

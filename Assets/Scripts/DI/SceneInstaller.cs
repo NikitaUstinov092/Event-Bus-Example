@@ -24,6 +24,8 @@ namespace DI
            
             Container.Bind<PlayerTurnTask>().AsSingle();
             Container.Bind<VisualTurnTask>().AsSingle();
+            Container.Bind<EnemyTurnTask>().AsSingle();
+            
         }
 
         private void ConfigureLevel()
@@ -35,30 +37,31 @@ namespace DI
 
         private void ConfigurePlayer()
         {
-            Container.Bind<KeyboardInput>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesTo<KeyboardInput>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerService>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyService>().FromComponentInHierarchy().AsSingle();
         }
 
         private void ConfigureHandlers()
         {
             Container.Bind<EventBus>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<ApplyDirectionHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<ForceDirectionHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AttackHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CollideHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<DealDamageHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<MoveHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<DestroyHandler>().AsSingle();
+            Container.BindInterfacesTo<ApplyDirectionHandler>().AsSingle();
+            Container.BindInterfacesTo<ForceDirectionHandler>().AsSingle();
+            Container.BindInterfacesTo<AttackHandler>().AsSingle();
+            Container.BindInterfacesTo<CollideHandler>().AsSingle();
+            Container.BindInterfacesTo<DealDamageHandler>().AsSingle();
+            Container.BindInterfacesTo<MoveHandler>().AsSingle();
+            Container.BindInterfacesTo<DestroyHandler>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<DealDamageEffectHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<PushEffectHandler>().AsSingle();
+            Container.BindInterfacesTo<DealDamageEffectHandler>().AsSingle();
+            Container.BindInterfacesTo<PushEffectHandler>().AsSingle();
         }
 
         private void ConfigureTurn()
         {
             Container.Bind<TurnPipeline>().AsSingle();
-            Container.BindInterfacesAndSelfTo<TurnPipelineInstaller>().AsSingle();
+            Container.BindInterfacesTo<TurnPipelineInstaller>().AsSingle();
             Container.Bind<TurnRunner>().FromComponentInHierarchy().AsSingle();;
         }
 

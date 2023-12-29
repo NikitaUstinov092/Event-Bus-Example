@@ -21,7 +21,8 @@ namespace Turn
             _turnPipeline.AddTask(new StartTurnTask());
             
             _turnPipeline.AddTask(_container.Resolve<PlayerTurnTask>());
-           // _turnPipeline.AddTask(_container.Resolve<VisualTurnTask>());
+            _turnPipeline.AddTask(_container.Resolve<EnemyTurnTask>());
+            _turnPipeline.AddTask(_container.Resolve<VisualTurnTask>());
             _turnPipeline.AddTask(new FinishTurnTask());
         }
     }

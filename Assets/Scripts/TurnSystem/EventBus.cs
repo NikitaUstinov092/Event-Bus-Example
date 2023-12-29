@@ -49,7 +49,7 @@ namespace TurnSystem
 
             if (!_handlers.TryGetValue(eventType, out var eventHandlerCollection))
             {
-                Debug.Log("No subscribers found");
+                Debug.Log($"{eventType} No subscribers found");
                 return;
             }
 
