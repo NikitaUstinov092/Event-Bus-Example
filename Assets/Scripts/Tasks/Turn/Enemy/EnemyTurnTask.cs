@@ -25,35 +25,47 @@ public class EnemyTurnTask : Task
     {
         var targetCoordinates = _target.Get<CoordinatesComponent>().Value;
         var enemyCoordinates = _enemy.Get<CoordinatesComponent>().Value;
-        var direction = (targetCoordinates - enemyCoordinates).normalizedToInteger();
+        var direction = DistanceHelper.GetDirection(enemyCoordinates, targetCoordinates); // Получаем единичное направление
         OnMovePreformed(direction);
     }
 
     private void OnMovePreformed(Vector2Int direction)
     {
-        
         _eventBus.RaiseEvent(new ApplyDirectionEvent(_enemy, direction));
         Finish();
     }
 }
 
-public static class Vector2IntExtensions
+public static class DistanceHelper
 {
-    public static Vector2Int normalizedToInteger(this Vector2Int vector)
+    public static Vector2Int GetDirection(Vector2Int enemyCoordinates, Vector2Int targetCoordinates)
     {
-        int gcd = Mathf.Abs(GreatestCommonDivisor(vector.x, vector.y));
-        return new Vector2Int(vector.x / gcd, vector.y / gcd);
-    }
-
-    // Нахождение наибольшего общего делителя (GCD) с помощью алгоритма Евклида
-    private static int GreatestCommonDivisor(int a, int b)
-    {
-        while (b != 0)
+        if (enemyCoordinates.x != targetCoordinates.x)
         {
-            int remainder = a % b;
-            a = b;
-            b = remainder;
+            if (enemyCoordinates.x < targetCoordinates.x)
+            {
+                return new Vector2Int(1, 0);
+            }
+
+            if (enemyCoordinates.x > targetCoordinates.x)
+            {
+                return new Vector2Int(-1, 0);
+            }
         }
-        return a;
+
+        if (enemyCoordinates.y != targetCoordinates.y)
+        {
+            if (enemyCoordinates.y < targetCoordinates.y)
+            {
+                return new Vector2Int(0, 1);
+            }
+
+            if (enemyCoordinates.y > targetCoordinates.y)
+            {
+                return new Vector2Int(0, -1);
+            }
+        }
+
+        return Vector2Int.zero; // Если текущие координаты совпадают с целевыми, возвращаем нулевое направление
     }
 }
