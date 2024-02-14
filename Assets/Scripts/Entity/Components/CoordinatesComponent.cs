@@ -8,9 +8,13 @@ namespace Entity.Components
         public Vector2Int Value
         {
             get => _coordinates.Value;
-            set => _coordinates.Value = value;
+            set
+            {
+                _coordinates.Value = value; 
+                // Debug.Log(_coordinates.Value);
+            }
         }
-        
+
         private readonly AtomicVariable<Vector2Int> _coordinates;
 
         public CoordinatesComponent(AtomicVariable<Vector2Int> coordinates)

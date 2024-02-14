@@ -1,7 +1,9 @@
+using Entity.Enemy;
 using GamePlay;
 using GamePlay.Input;
 using Level;
 using Tasks.Turn;
+using Tasks.Turn.Common;
 using Tasks.Visual;
 using Turn;
 using TurnSystem;
@@ -24,8 +26,14 @@ namespace DI
            
             Container.Bind<PlayerTurnTask>().AsSingle();
             Container.Bind<VisualTurnTask>().AsSingle();
-            Container.Bind<EnemyTurnTask>().AsSingle();
+            Container.Bind<ZombieTaskInstaller>().AsSingle();
+            Container.Bind<ZombieCleanerTask>().AsSingle();
             
+           // Container.Bind<EnemyTurnTask>().AsSingle();
+            
+          
+            Container.Bind<EnemyStorage>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnemyStorageManager>().FromComponentInHierarchy().AsSingle();
         }
 
         private void ConfigureLevel()
@@ -39,7 +47,7 @@ namespace DI
         {
             Container.BindInterfacesTo<KeyboardInput>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerService>().FromComponentInHierarchy().AsSingle();
-            Container.BindInterfacesAndSelfTo<EnemyService>().FromComponentInHierarchy().AsSingle();
+          
         }
 
         private void ConfigureHandlers()
@@ -61,8 +69,7 @@ namespace DI
         private void ConfigureTurn()
         {
             Container.Bind<TurnPipeline>().AsSingle();
-            Container.BindInterfacesTo<TurnPipelineInstaller>().AsSingle();
-            Container.Bind<TurnRunner>().FromComponentInHierarchy().AsSingle();;
+            Container.BindInterfacesTo<PipelineTaskManager>().FromComponentInHierarchy().AsSingle();
         }
 
         private void ConfigureVisual()
@@ -72,6 +79,7 @@ namespace DI
             Container.BindInterfacesAndSelfTo<DestroyVisualHandler>().AsSingle();
             Container.BindInterfacesAndSelfTo<DealDamageVisualHandler>().AsSingle();
             Container.BindInterfacesAndSelfTo<AttackVisualHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CollideVisualHandler>().AsSingle();
         }
     }
 }

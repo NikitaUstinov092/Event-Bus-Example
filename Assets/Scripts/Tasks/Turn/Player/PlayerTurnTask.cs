@@ -15,15 +15,15 @@ namespace Tasks.Turn
         private EventBus _eventBus;
         
         [Inject]
-        public void Construct (IMoveInput input, EventBus eventBus, PlayerService playerService)
+        public void Construct(IMoveInput input, EventBus eventBus, PlayerService playerService)
         {
             _input = input;
             _player = playerService.Player;
             _eventBus = eventBus;
         }
-        
         protected override void OnRun()
         {
+            Debug.Log("PlayerTurnTask started!");
             _input.MovePerformed += OnMovePreformed;
         }
 
@@ -33,6 +33,11 @@ namespace Tasks.Turn
           
             _eventBus.RaiseEvent(new ApplyDirectionEvent(_player, direction));
             Finish();
+        }
+
+        protected override void OnFinish()
+        {
+            Debug.Log("PlayerTurnTask finished!");
         }
     }
 }

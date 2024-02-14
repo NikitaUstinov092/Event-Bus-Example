@@ -21,7 +21,7 @@ namespace Tasks.Visual
         
         protected override void OnRun()
         {
-            _transform.Value.DOPunchScale(Vector3.one * 1.3f, _duration, 5).OnComplete(Finish);
+           _transform.Value.DOPunchScale(Vector3.one * 1.3f, _duration, 5).OnComplete(Finish);
         }
     }
 }

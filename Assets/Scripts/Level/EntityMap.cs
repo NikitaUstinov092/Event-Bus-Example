@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Entity;
 using UnityEngine;
 
@@ -16,6 +17,16 @@ namespace Level
         public IEntity GetEntity(Vector2Int coordinates)
         {
             return _entities.ContainsKey(coordinates) ? _entities[coordinates] : null;
+        }
+        
+        public Vector2Int GetEntityCoordinates(IEntity entity)
+        {
+            foreach (var coordinates in _entities.Keys.Where(coordinates => _entities[coordinates] == entity))
+            {
+                return coordinates;
+            }
+
+            return Vector2Int.zero;
         }
 
         public void RemoveEntity(Vector2Int coordinates)

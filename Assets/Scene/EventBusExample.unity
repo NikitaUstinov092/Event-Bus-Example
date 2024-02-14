@@ -1280,7 +1280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1532855456}
-  - component: {fileID: 1532855457}
+  - component: {fileID: 1532855458}
   m_Layer: 0
   m_Name: TurnSystem
   m_TagString: Untagged
@@ -1303,7 +1303,7 @@ Transform:
   m_Father: {fileID: 206469664}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1532855457
+--- !u!114 &1532855458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1312,11 +1312,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1532855455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d54ecacbeb449697a51520089e3fbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a4741a9fcda4df68ca7900fe3bf917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runOnStart: 1
-  runOnFinish: 1
 --- !u!1 &1776845083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,7 +1643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63371f453ed68bf44be898065ddda290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 2737193637058504201}
+  _enemy:
+  - {fileID: 2737193637058504201}
 --- !u!1 &1830058073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,10 +1775,17 @@ MonoBehaviour:
       value: {x: 0, y: 0}
   attack:
     weapon:
-      value: {fileID: 11400000, guid: ccaf5971b46a1eb4580a71239c0611a9, type: 2}
+      value: {fileID: 11400000, guid: 1633d8510e986544bb88fd9b06b1edf1, type: 2}
   stats:
     strength:
       value: 1
+  Life:
+    isDead:
+      value: 0
+    hitPoints:
+      value: 50
+    maxHitPoints:
+      value: 50
 --- !u!1 &2737193636071454480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +1976,9 @@ MonoBehaviour:
       value: 3
     maxHitPoints:
       value: 3
+  attack:
+    weapon:
+      value: {fileID: 11400000, guid: 1633d8510e986544bb88fd9b06b1edf1, type: 2}
 --- !u!114 &2737193637058504201
 MonoBehaviour:
   m_ObjectHideFlags: 0

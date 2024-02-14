@@ -11,12 +11,14 @@ namespace Entity.Enemy
         private void Awake()
         {
             var model = GetComponent<EnemyModel>();
+            Add(new TransformComponent(transform));
             Add(new PositionComponent(model.position.transform));
+            Add(new WeaponComponent(model.attack.weapon));
             Add(new CoordinatesComponent(model.position.coordinates));
             Add(new HitPointsComponent(model.life.hitPoints, model.life.maxHitPoints));
             Add(new DeathComponent(model.life.isDead));
             Add(new DestroyComponent(gameObject));
-            Add(new TransformComponent(transform));
+           
         }
     }
 }

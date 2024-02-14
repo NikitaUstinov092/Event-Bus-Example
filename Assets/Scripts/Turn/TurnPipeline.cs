@@ -13,9 +13,16 @@ namespace Turn
         private readonly List<Task> _tasks = new();
 
         private int _currentIndex = -1;
+
+        public int GetTasksCount => _tasks.Count;
         public void AddTask(Task task)
         {
             _tasks.Add(task);
+        }
+        
+        public void ClearAllTasks()
+        {
+            _tasks.Clear();
         }
         
         public void Run()

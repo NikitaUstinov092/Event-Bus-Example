@@ -6,8 +6,14 @@ namespace Entity.Components
     {
         public Vector3 Value
         {
-            get => _transform.position;
-            set => _transform.position = value;
+            get 
+            {
+                return _transform.position;
+            } 
+            set
+            {
+                _transform.position = value;
+            }
         }
         
         private readonly Transform _transform;

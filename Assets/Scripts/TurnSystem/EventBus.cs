@@ -45,7 +45,7 @@ namespace TurnSystem
             _isRunning = true;
             
             var eventType = evt.GetType();
-            Debug.Log(eventType);
+         //   Debug.Log(eventType);
 
             if (!_handlers.TryGetValue(eventType, out var eventHandlerCollection))
             {

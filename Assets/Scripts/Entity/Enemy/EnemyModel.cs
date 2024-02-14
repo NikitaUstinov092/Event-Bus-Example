@@ -11,5 +11,9 @@ namespace Entity.Enemy
 
         [Section]
         public Life life;
+        
+        [Section]
+        public Attack attack;
+        
     }
 }

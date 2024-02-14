@@ -10,7 +10,7 @@
             public TileMap Tiles { get; private set;}
 
             [Inject]
-            public void Construct(EntityMap entities,TileMap tiles)
+            public void Construct(EntityMap entities, TileMap tiles)
             {
                 Entities = entities;
                 Tiles = tiles;

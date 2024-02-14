@@ -1,7 +1,6 @@
 using DG.Tweening;
 using Entity;
 using Entity.Components;
-using GamePlay;
 using UnityEngine;
 
 namespace Tasks.Visual
@@ -12,7 +11,6 @@ namespace Tasks.Visual
         
         private readonly TransformComponent _transform;
         private readonly float _duration;
-        
         public DestroyVisualTask(IEntity entity, float duration)
         {
             _transform = entity.Get<TransformComponent>();
@@ -23,5 +21,6 @@ namespace Tasks.Visual
         {
             _transform.Value.DOScale(Vector3.zero, _duration).OnComplete(Finish);
         }
+        
     }
 }

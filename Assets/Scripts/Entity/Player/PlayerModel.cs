@@ -14,5 +14,8 @@ namespace Entity.Player
 
         [Section]
         public Stats stats;
+        
+        [Section]
+        public Life Life;
     }
 }

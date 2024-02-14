@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd300e009f147eaaed4e277fea30455, type: 3}
-  m_Name: PushingWeopon
+  m_Name: HitWeopon
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 4316479572551401473
+  - rid: 4316479572551401476
   references:
     version: 2
     RefIds:
-    - rid: 4316479572551401473
-      type: {class: PushEffectEvent, ns: TurnSystem.Events.Effect, asm: Assembly-CSharp}
+    - rid: 4316479572551401476
+      type: {class: DealDamageEffectEvent, ns: TurnSystem.Events.Effect, asm: Assembly-CSharp}
+      data:
+        extraDamage: 0
