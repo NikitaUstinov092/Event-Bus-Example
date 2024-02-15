@@ -28,8 +28,6 @@ namespace Turn
             _turnPipeline.AddTask(_visualTurnTask);
              _turnPipeline.AddTask(_zombieCleanerTask);
             
-            
-            Debug.Log(_turnPipeline.GetTasksCount);
             OnPipeLineSet?.Invoke();
         }
         
@@ -54,13 +52,11 @@ namespace Turn
             _turnPipeline.Finished += SetPipelineTasks;
         }
         
-
         void IDisposable.Dispose()
         {
             OnPipeLineSet -= _turnPipeline.Run;
             _turnPipeline.Finished -= SetPipelineTasks;
         }
         
-    
     }
 }

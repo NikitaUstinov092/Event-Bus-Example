@@ -11,10 +11,9 @@ namespace Entity.Player
         {
             var model = GetComponent<PlayerModel>();
             AddRange(new TransformComponent(transform),
-                new PositionComponent(model.position.transform),
-                new StatsComponent(model.stats),
-                new WeaponComponent(model.attack.weapon),
-                new CoordinatesComponent(model.position.coordinates),
+                new PositionComponent(model.Position.transform),
+                new CoordinatesComponent(model.Position.coordinates),
+                new ShootComponent(model.Shoot.Weapon),
                 new HitPointsComponent(model.Life.hitPoints, model.Life.maxHitPoints),
                 new DeathComponent(model.Life.isDead),
                 new DestroyComponent(gameObject));

@@ -59,10 +59,11 @@ namespace DI
             Container.BindInterfacesTo<AttackHandler>().AsSingle();
             Container.BindInterfacesTo<CollideHandler>().AsSingle();
             Container.BindInterfacesTo<DealDamageHandler>().AsSingle();
-            Container.BindInterfacesTo<MoveHandler>().AsSingle();
             Container.BindInterfacesTo<DestroyHandler>().AsSingle();
-
+            Container.BindInterfacesTo<MoveHandler>().AsSingle();
+            Container.BindInterfacesTo<ShootHandler>().AsSingle();
             Container.BindInterfacesTo<DealDamageEffectHandler>().AsSingle();
+            Container.BindInterfacesTo<BulletAttackHandler>().AsSingle();
             Container.BindInterfacesTo<PushEffectHandler>().AsSingle();
         }
 

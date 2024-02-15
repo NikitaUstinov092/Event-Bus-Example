@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd300e009f147eaaed4e277fea30455, type: 3}
-  m_Name: HitWeopon
+  m_Name: Gun
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 4316479572697677824
+  - rid: 4316479593408102403
   references:
     version: 2
     RefIds:
-    - rid: 4316479572697677824
+    - rid: 4316479593408102403
       type: {class: DealDamageEffectEvent, ns: TurnSystem.Events.Effect, asm: Assembly-CSharp}
       data:
         extraDamage: 1

@@ -7,15 +7,12 @@ namespace Entity.Player
     public sealed class PlayerModel : DeclarativeModel
     {
         [Section]
-        public Position position;
-
-        [Section]
-        public Attack attack;
-
-        [Section]
-        public Stats stats;
+        public Position Position;
         
         [Section]
         public Life Life;
+        
+        [Section]
+        public Attack Shoot;
     }
 }

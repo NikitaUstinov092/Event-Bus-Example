@@ -4,13 +4,13 @@
 
     namespace Entity.Components
     {
-        public sealed class WeaponComponent
+        public sealed class MeleeWeaponComponent
         {
             public Weapon Value => _weapon.Value;
         
             private readonly AtomicVariable<Weapon> _weapon;
         
-            public WeaponComponent(AtomicVariable<Weapon> weapon)
+            public MeleeWeaponComponent(AtomicVariable<Weapon> weapon)
             {
                 _weapon = weapon;
             }

@@ -5,11 +5,11 @@ using Zenject;
 
 namespace TurnSystem.Handlers.Visual
 {
-    public sealed class AttackVisualHandler : BaseHandler<AttackEvent>
+    public sealed class AttackVisualHandler : BaseHandler<MeleeCombatEvent>
     {
         [Inject]
         private readonly VisualPipeline _visualPipeline;
-        protected override void HandleEvent(AttackEvent evt)
+        protected override void HandleEvent(MeleeCombatEvent evt)
         {
             var sourcePosition = evt.Entity.Get<PositionComponent>();
             var targetPosition = evt.Target.Get<PositionComponent>();

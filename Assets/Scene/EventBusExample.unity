@@ -1769,16 +1769,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ecad1f38f45dcbeba770d87ddf557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position:
+  Position:
     transform: {fileID: 2024857705}
     coordinates:
       value: {x: 0, y: 0}
-  attack:
-    weapon:
-      value: {fileID: 11400000, guid: 1633d8510e986544bb88fd9b06b1edf1, type: 2}
-  stats:
-    strength:
-      value: 1
   Life:
     isDead:
       value: 0
@@ -1786,6 +1780,9 @@ MonoBehaviour:
       value: 50
     maxHitPoints:
       value: 50
+  Shoot:
+    Weapon:
+      value: {fileID: 11400000, guid: 686621861dd4c5244a903f0497087221, type: 2}
 --- !u!1 &2737193636071454480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,19 +1962,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52901f1dc46048e699db9711f1d59dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position:
+  Position:
     transform: {fileID: 2737193637058504214}
     coordinates:
       value: {x: 0, y: 0}
-  life:
+  Life:
     isDead:
       value: 0
     hitPoints:
       value: 3
     maxHitPoints:
-      value: 3
+      value: 0
   attack:
-    weapon:
+    Weapon:
       value: {fileID: 11400000, guid: 1633d8510e986544bb88fd9b06b1edf1, type: 2}
 --- !u!114 &2737193637058504201
 MonoBehaviour:
@@ -2067,7 +2064,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 791736992, guid: 30e312fd3e636cb4a928c8eee3245423, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e92527f6d0fe45342ab542b47346d45f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

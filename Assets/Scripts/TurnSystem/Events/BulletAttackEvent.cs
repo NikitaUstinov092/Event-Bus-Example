@@ -1,17 +1,16 @@
+﻿using Entity;
 
-    using Entity;
-
-    namespace TurnSystem.Events
+namespace TurnSystem.Events
+{
+    public struct BulletAttackEvent
     {
-        public readonly struct AttackEvent
-        {
             public readonly IEntity Entity;
             public readonly IEntity Target;
 
-            public AttackEvent(IEntity entity, IEntity target)
+            public BulletAttackEvent(IEntity entity, IEntity target)
             {
                 Entity = entity;
                 Target = target;
             }
-        }
     }
+}

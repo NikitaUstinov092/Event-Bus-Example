@@ -10,34 +10,47 @@ namespace Tasks.Turn
 {
     public sealed class PlayerTurnTask : Task
     {
-        private IMoveInput _input;
+        private IMoveInput _inputMove;
+        private IShootInput _inputShoot;
         private IEntity _player;
         private EventBus _eventBus;
         
         [Inject]
-        public void Construct(IMoveInput input, EventBus eventBus, PlayerService playerService)
+        public void Construct(IMoveInput inputMove, IShootInput inputShoot, 
+            EventBus eventBus, PlayerService playerService)
         {
-            _input = input;
+            _inputMove = inputMove;
+            _inputShoot = inputShoot;
             _player = playerService.Player;
             _eventBus = eventBus;
         }
         protected override void OnRun()
         {
-            Debug.Log("PlayerTurnTask started!");
-            _input.MovePerformed += OnMovePreformed;
+            _inputMove.MovePerformed += OnMovePreformed;
+            _inputShoot.ShootPerformed += OnShootPreformed;
         }
 
         private void OnMovePreformed(Vector2Int direction)
         {
-            _input.MovePerformed -= OnMovePreformed;
-          
+            RemoveListeners();
+            
             _eventBus.RaiseEvent(new ApplyDirectionEvent(_player, direction));
             Finish();
         }
-
-        protected override void OnFinish()
+        
+        
+        private void OnShootPreformed(Vector2Int direction)
         {
-            Debug.Log("PlayerTurnTask finished!");
+            RemoveListeners();
+            
+            _eventBus.RaiseEvent(new ShootEvent(_player, direction, 5));
+            Finish();
+        }
+
+        private void RemoveListeners()
+        {
+            _inputMove.MovePerformed -= OnMovePreformed;
+            _inputShoot.ShootPerformed -= OnShootPreformed;
         }
     }
 }

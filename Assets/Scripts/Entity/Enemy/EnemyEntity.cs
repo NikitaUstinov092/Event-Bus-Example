@@ -12,11 +12,11 @@ namespace Entity.Enemy
         {
             var model = GetComponent<EnemyModel>();
             Add(new TransformComponent(transform));
-            Add(new PositionComponent(model.position.transform));
-            Add(new WeaponComponent(model.attack.weapon));
-            Add(new CoordinatesComponent(model.position.coordinates));
-            Add(new HitPointsComponent(model.life.hitPoints, model.life.maxHitPoints));
-            Add(new DeathComponent(model.life.isDead));
+            Add(new PositionComponent(model.Position.transform));
+            Add(new MeleeWeaponComponent(model.attack.Weapon));
+            Add(new CoordinatesComponent(model.Position.coordinates));
+            Add(new HitPointsComponent(model.Life.hitPoints, model.Life.maxHitPoints));
+            Add(new DeathComponent(model.Life.isDead));
             Add(new DestroyComponent(gameObject));
            
         }

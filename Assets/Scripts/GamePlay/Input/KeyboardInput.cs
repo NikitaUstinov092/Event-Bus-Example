@@ -59,22 +59,22 @@ namespace GamePlay.Input
             
             if (UnityEngine.Input.GetKeyUp(_shootUp))
             {
-                shootDirection.y += 1;
+                shootDirection = new Vector2Int(0,1);
             }
             
             if (UnityEngine.Input.GetKeyUp(_shootDown))
             {
-                shootDirection.y -= 1;
+                shootDirection = new Vector2Int(0,-1);
             }
             
             if (UnityEngine.Input.GetKeyUp(_shootRight))
             {
-                shootDirection.x += 1;
+                shootDirection = new Vector2Int(1,0);
             }
             
             if (UnityEngine.Input.GetKeyUp(_shootLeft))
             {
-                shootDirection.x -= 1;
+                shootDirection = new Vector2Int(-1,0);
             }
             
             if (movement != Vector2Int.zero)
@@ -87,8 +87,7 @@ namespace GamePlay.Input
                 ShootPerformed?.Invoke(shootDirection);
             }
         }
-
-      
+        
     }
 
     public interface IMoveInput

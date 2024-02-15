@@ -4,11 +4,11 @@
 
     namespace TurnSystem.Handlers
      {
-         public sealed class AttackHandler : BaseHandler<AttackEvent>
+         public sealed class AttackHandler : BaseHandler<MeleeCombatEvent>
          {
-             protected override void HandleEvent(AttackEvent evt)
+             protected override void HandleEvent(MeleeCombatEvent evt)
              {
-                 if (!evt.Entity.TryGet(out WeaponComponent weapon))
+                 if (!evt.Entity.TryGet(out MeleeWeaponComponent weapon))
                  {
                      return;
                  }
