@@ -11,7 +11,7 @@ namespace TurnSystem.Handlers.Visual
 
         protected override void HandleEvent(ExplodeEvent evt)
         {
-            _visualPipeline.AddTask(new ExplodeVisualTask(evt.Entity, 2));
+            _visualPipeline.AddTask(new ExplodeVisualTask(evt.Entity, 0.5f));
         }
     }
 }

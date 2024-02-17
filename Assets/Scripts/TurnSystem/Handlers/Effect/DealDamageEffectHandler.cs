@@ -10,7 +10,6 @@
          {
              protected override void HandleEvent(DealDamageEffectEvent evt)
              {
-                 Debug.Log($"{evt.Source} {evt.Targets} РЕЗУЛЬТАТ");
                  var damage = evt.extraDamage;
                  foreach (var entity in evt.Targets)
                  {

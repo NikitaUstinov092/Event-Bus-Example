@@ -21,7 +21,7 @@ namespace TurnSystem.Events
             var explodeSourceCoordinates = _levelMap.Entities.GetEntityCoordinates(evt.Entity);
             
             var coordinatesAround = new CoordinatesAroundDetector().GetCoordinatesAround(explodeSourceCoordinates);
-            var entitiesAround = GetClosedEntities(coordinatesAround);
+            var entitiesAround = new ClosedEntitySearcher(_levelMap).GetClosedEntities(coordinatesAround);
             
             foreach (var effect in evt.PostDeathEffect.Effects)
             {
@@ -32,24 +32,6 @@ namespace TurnSystem.Events
             
             var coordinates = evt.Entity.Get<CoordinatesComponent>();
             _levelMap.Entities.RemoveEntity(coordinates.Value);
-        }
-
-
-        
-
-        private IEntity[] GetClosedEntities(Vector2Int[] currentCoordinates)
-        {
-            var entities = new List<IEntity>();
-
-            foreach (var coordinate in currentCoordinates)
-            {
-                var entity = _levelMap.Entities.GetEntity(coordinate);
-                if ( entity!= null)
-                {
-                    entities.Add(entity);
-                }
-            }
-            return entities.ToArray();
         }
     }
 }
@@ -75,5 +57,29 @@ public class CoordinatesAroundDetector
         var coordinates = new Vector2Int[]
             { left, right, up, down, topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner };
         return coordinates;
+    }
+}
+
+public class ClosedEntitySearcher
+{
+    private readonly LevelMap _levelMap;
+    public ClosedEntitySearcher(LevelMap levelMap)
+    {
+        _levelMap = levelMap;
+    }
+    
+    public IEntity[] GetClosedEntities(Vector2Int[] currentCoordinates)
+    {
+        var entities = new List<IEntity>();
+
+        foreach (var coordinate in currentCoordinates)
+        {
+            var entity = _levelMap.Entities.GetEntity(coordinate);
+            if ( entity!= null)
+            {
+                entities.Add(entity);
+            }
+        }
+        return entities.ToArray();
     }
 }

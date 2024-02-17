@@ -12,7 +12,6 @@
                  {
                      return;
                  }
-            
                  
                  foreach (var effect in weapon.Value.Effects)
                  {

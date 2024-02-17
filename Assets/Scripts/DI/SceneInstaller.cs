@@ -1,3 +1,4 @@
+using Entity;
 using Entity.Enemy;
 using GamePlay;
 using GamePlay.Input;
@@ -28,13 +29,15 @@ namespace DI
             Container.Bind<PlayerTurnTask>().AsSingle();
             Container.Bind<VisualTurnTask>().AsSingle();
             Container.Bind<ZombieTaskInstaller>().AsSingle();
-            Container.Bind<ZombieCleanerTask>().AsSingle();
+            Container.Bind<DeadEntityCleanerTask>().AsSingle();
+            Container.Bind<ZombieTaskSpawner>().AsSingle();
             
-           // Container.Bind<EnemyTurnTask>().AsSingle();
-            
-          
             Container.Bind<EnemyStorage>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnemyStorageManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<EntityInstaller>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ZombieSpawner>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<EntityObjectDestroyer>().FromComponentInHierarchy().AsSingle();
+            
         }
 
         private void ConfigureLevel()

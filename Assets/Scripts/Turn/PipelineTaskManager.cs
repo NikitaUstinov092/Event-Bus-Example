@@ -1,5 +1,4 @@
 using System;
-using Sirenix.OdinInspector;
 using Tasks.Turn;
 using Tasks.Turn.Common;
 using UnityEngine;
@@ -16,17 +15,18 @@ namespace Turn
         
         private PlayerTurnTask _playerTurnTask;
         private ZombieTaskInstaller _zombieTaskInstaller;
-        private VisualTurnTask _visualTurnTask;
-        private ZombieCleanerTask _zombieCleanerTask;
         
-        [Button]
-        public void SetPipelineTasks()
+        private VisualTurnTask _visualTurnTask;
+        private DeadEntityCleanerTask _deadEntityCleanerTask;
+        private ZombieTaskSpawner _zombieTaskSpawner;
+        private void SetPipelineTasks()
         {
             _turnPipeline.ClearAllTasks();
             _turnPipeline.AddTask(_playerTurnTask);
             _zombieTaskInstaller.Init();
             _turnPipeline.AddTask(_visualTurnTask);
-             _turnPipeline.AddTask(_zombieCleanerTask);
+            _turnPipeline.AddTask(_zombieTaskSpawner);
+            _turnPipeline.AddTask(_deadEntityCleanerTask);
             
             OnPipeLineSet?.Invoke();
         }
@@ -40,14 +40,15 @@ namespace Turn
             _playerTurnTask = _container.Resolve<PlayerTurnTask>();
             _zombieTaskInstaller = _container.Resolve<ZombieTaskInstaller>();
             _visualTurnTask = _container.Resolve<VisualTurnTask>();
-            _zombieCleanerTask = _container.Resolve<ZombieCleanerTask>();
+            _deadEntityCleanerTask = _container.Resolve<DeadEntityCleanerTask>();
+            _zombieTaskSpawner = _container.Resolve<ZombieTaskSpawner>();
         }
         
-        [Button]
         private void Start()
         {
             SetPipelineTasks();
             _turnPipeline.Run();
+            
             OnPipeLineSet += _turnPipeline.Run;
             _turnPipeline.Finished += SetPipelineTasks;
         }

@@ -1,6 +1,7 @@
 ﻿using Entity.Components;
 using Entity.Player;
 using Level;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -23,13 +24,19 @@ namespace Entity
         {
             foreach (var entity in entities)
             {
-                var coordinates = entity.Get<CoordinatesComponent>();
-                var position = entity.Get<PositionComponent>();
-                coordinates.Value = _levelMap.Tiles.PositionToCoordinates(position.Value);
-                position.Value = _levelMap.Tiles.CoordinatesToPosition(coordinates.Value);
-                
-                _levelMap.Entities.SetEntity(coordinates.Value, entity);
+                InstallEntity(entity);
             }
+        }
+
+        [Button]
+        public void InstallEntity(IEntity entity)
+        {
+            var coordinates = entity.Get<CoordinatesComponent>();
+            var position = entity.Get<PositionComponent>();
+            coordinates.Value = _levelMap.Tiles.PositionToCoordinates(position.Value);
+            position.Value = _levelMap.Tiles.CoordinatesToPosition(coordinates.Value);
+                
+            _levelMap.Entities.SetEntity(coordinates.Value, entity);
         }
     }
 }

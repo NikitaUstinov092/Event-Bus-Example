@@ -51,7 +51,7 @@ public static class DirectionHelper
             }
         }
 
-        if (enemyCoordinates.y != targetCoordinates.y)
+        else if (enemyCoordinates.y != targetCoordinates.y)
         {
             if (enemyCoordinates.y < targetCoordinates.y)
             {
