@@ -24,6 +24,13 @@ public class ZombieTurnTask : Task
         var targetCoordinates = _target.Get<CoordinatesComponent>().Value;
         var enemyCoordinates = _enemy.Get<CoordinatesComponent>().Value;
         var direction = DirectionHelper.GetDirection(enemyCoordinates, targetCoordinates); // Получаем единичное направление
+        
+        if (_enemy.Get<HitPointsComponent>().Value <= 0)
+        {
+            Finish();
+            return;
+        }
+        
         OnMovePreformed(direction);
     }
 

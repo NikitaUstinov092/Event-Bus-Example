@@ -12,17 +12,14 @@ namespace TurnSystem.Handlers
         
         protected override void HandleEvent(ApplyDirectionEvent evt)
         {
-            if (evt.Entity.Get<HitPointsComponent>().Value <= 0)
-            {
-                return;
-            }
-            
             var coordinates = evt.Entity.Get<CoordinatesComponent>();
             var targetCoordinates = coordinates.Value + evt.Direction;
 
             if (_levelMap.Entities.HasEntity(targetCoordinates))
             {
-                EventBus.RaiseEvent(new MeleeCombatEvent(evt.Entity, _levelMap.Entities.GetEntity(targetCoordinates)));
+                var targetEntity = _levelMap.Entities.GetEntity(targetCoordinates);
+                
+                EventBus.RaiseEvent(new MeleeCombatEvent(evt.Entity, targetEntity));
                 return;
             }
             

@@ -1,4 +1,5 @@
 using Entity.Components;
+using Level;
 using Tasks.Visual;
 using TurnSystem.Events;
 using Zenject;
@@ -7,16 +8,23 @@ namespace TurnSystem.Handlers.Visual
 {
     public sealed class MeleeCombatVisualHandler : BaseHandler<MeleeCombatEvent>
     {
+        private VisualPipeline _visualPipeline;
+        private LevelMap _levelMap;
+
         [Inject]
-        private readonly VisualPipeline _visualPipeline;
+        private void Construct(VisualPipeline visualPipeline, LevelMap levelMap)
+        {
+            _visualPipeline = visualPipeline;
+            _levelMap = levelMap;
+        }
         protected override void HandleEvent(MeleeCombatEvent evt)
         {
             var sourcePosition = evt.Entity.Get<PositionComponent>();
-            var targetPosition = evt.Target.Get<PositionComponent>();
-            var offset = (targetPosition.Value - sourcePosition.Value) * 0.5f;
+            var targetCoordinates = evt.Target.Get<CoordinatesComponent>();
+            var targetPosition = _levelMap.Tiles.CoordinatesToPosition(targetCoordinates.Value);
             
-            _visualPipeline.AddTask(new MoveVisualTask(evt.Entity, sourcePosition.Value + offset, 0.15f));
-            _visualPipeline.AddTask(new MoveVisualTask(evt.Entity, sourcePosition.Value, 0.15f));
+             _visualPipeline.AddTask(new MoveVisualTask(evt.Entity, targetPosition, 0.15f));
+             _visualPipeline.AddTask(new MoveVisualTask(evt.Entity, sourcePosition.Value, 0.15f));
         }
     }
 }
