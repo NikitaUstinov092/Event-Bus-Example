@@ -47,7 +47,7 @@ public class CoordinatesAroundDetector
         var left =  new Vector2Int(x - 1, y);
         var right =  new Vector2Int(x + 1, y);
         var up = new Vector2Int(x, 1 + y);
-        var down =  new Vector2Int(x, 1 - y);
+        var down =  new Vector2Int(x, y - 1);
            
         var topLeftCorner = new Vector2Int(x - 1, y + 1);
         var topRightCorner = new Vector2Int(x + 1, y + 1);
@@ -75,7 +75,7 @@ public class ClosedEntitySearcher
         foreach (var coordinate in currentCoordinates)
         {
             var entity = _levelMap.Entities.GetEntity(coordinate);
-            if ( entity!= null)
+            if (entity!= null)
             {
                 entities.Add(entity);
             }

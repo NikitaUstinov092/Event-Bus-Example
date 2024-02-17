@@ -1,4 +1,5 @@
-﻿using Entity.Components;
+﻿using System.Atomic.Implementations;
+using Entity.Components;
 using UnityEngine;
 
 namespace Entity.Player
@@ -16,6 +17,7 @@ namespace Entity.Player
                 new ShootComponent(model.Shoot.Weapon),
                 new HitPointsComponent(model.Life.hitPoints, model.Life.maxHitPoints),
                 new DeathComponent(model.Life.isDead),
+                new TeamComponent(new AtomicVariable<int>(0)),
                 new DestroyComponent(gameObject));
         }
     }

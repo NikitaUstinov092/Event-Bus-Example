@@ -1,6 +1,8 @@
+using Entity;
 using Entity.Components;
 using Level;
 using TurnSystem.Events;
+using TurnSystem.Events.Effect;
 using Zenject;
 
 namespace TurnSystem.Handlers
@@ -18,8 +20,14 @@ namespace TurnSystem.Handlers
             if (_levelMap.Entities.HasEntity(targetCoordinates))
             {
                 var targetEntity = _levelMap.Entities.GetEntity(targetCoordinates);
+                var sourceTeamComponent =  evt.Entity.Get<TeamComponent>();
+                var targetTeamComponent = targetEntity.Get<TeamComponent>();
                 
-                EventBus.RaiseEvent(new MeleeCombatEvent(evt.Entity, targetEntity));
+                if (sourceTeamComponent.GetTeam() != targetTeamComponent.GetTeam())
+                {
+                    EventBus.RaiseEvent(new MeleeCombatEvent(evt.Entity, targetEntity));
+                    return;
+                }
                 return;
             }
             

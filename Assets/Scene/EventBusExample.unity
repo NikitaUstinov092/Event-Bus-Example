@@ -639,7 +639,7 @@ MonoBehaviour:
       value: 1
   Attack:
     Weapon:
-      value: {fileID: 11400000, guid: d5eebc84d96420848899a0f23e01eb09, type: 2}
+      value: {fileID: 11400000, guid: 325b0d853eece0b409187183ec814e3d, type: 2}
 --- !u!1 &307580516
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
       value: 1
   Attack:
     Weapon:
-      value: {fileID: 11400000, guid: d5eebc84d96420848899a0f23e01eb09, type: 2}
+      value: {fileID: 11400000, guid: 325b0d853eece0b409187183ec814e3d, type: 2}
 --- !u!1 &479346543
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +916,7 @@ MonoBehaviour:
       value: 1
   Attack:
     Weapon:
-      value: {fileID: 11400000, guid: d5eebc84d96420848899a0f23e01eb09, type: 2}
+      value: {fileID: 11400000, guid: 325b0d853eece0b409187183ec814e3d, type: 2}
 --- !u!1 &991745739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,7 +1973,7 @@ MonoBehaviour:
       value: 1
   Attack:
     Weapon:
-      value: {fileID: 11400000, guid: d5eebc84d96420848899a0f23e01eb09, type: 2}
+      value: {fileID: 11400000, guid: 325b0d853eece0b409187183ec814e3d, type: 2}
 --- !u!1 &1426676766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,7 +2111,7 @@ MonoBehaviour:
       value: 1
   Attack:
     Weapon:
-      value: {fileID: 11400000, guid: d5eebc84d96420848899a0f23e01eb09, type: 2}
+      value: {fileID: 11400000, guid: 325b0d853eece0b409187183ec814e3d, type: 2}
 --- !u!1 &1524581149
 GameObject:
   m_ObjectHideFlags: 0

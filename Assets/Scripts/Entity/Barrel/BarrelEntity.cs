@@ -1,3 +1,4 @@
+using System.Atomic.Implementations;
 using Entity.Components;
 using Entity.Player;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class BarrelEntity : MonoEntityBase
             Add(new CoordinatesComponent(model.Position.coordinates));
             Add(new HitPointsComponent(model.Life.hitPoints, model.Life.maxHitPoints));
             Add(new ExplodeComponent(model.Life.isDead, model.Attack.Weapon));
+            Add(new TeamComponent(new AtomicVariable<int>(1)));
             Add(new DestroyComponent(gameObject));
            
         }
