@@ -10,9 +10,13 @@
              protected override void HandleEvent(PushEffectEvent evt)
              {
                  var coordinates = evt.Source.Get<CoordinatesComponent>();
-                 var targetCoordinates = evt.Target.Get<CoordinatesComponent>();
-                 var direction = targetCoordinates.Value - coordinates.Value;
-                 EventBus.RaiseEvent(new ForceDirectionEvent(evt.Target, direction));
+                 foreach (var entity in evt.Targets)
+                 {
+                     var targetCoordinates = entity.Get<CoordinatesComponent>();
+                     var direction = targetCoordinates.Value - coordinates.Value;
+                     EventBus.RaiseEvent(new ForceDirectionEvent(entity, direction));
+                 }
+                
              }
          }
      }

@@ -15,7 +15,7 @@ namespace TurnSystem.Handlers
             foreach (var effect in weapon.Value.Effects)
             {
                 effect.Source = evt.Entity;
-                effect.Target = evt.Target;
+                effect.Targets = new[]{evt.Target};
                 EventBus.RaiseEvent(effect);
             }
         }

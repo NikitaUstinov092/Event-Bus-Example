@@ -7,6 +7,7 @@ using Tasks.Turn.Common;
 using Tasks.Visual;
 using Turn;
 using TurnSystem;
+using TurnSystem.Events;
 using TurnSystem.Handlers;
 using TurnSystem.Handlers.Effect;
 using TurnSystem.Handlers.Visual;
@@ -56,10 +57,11 @@ namespace DI
 
             Container.BindInterfacesTo<ApplyDirectionHandler>().AsSingle();
             Container.BindInterfacesTo<ForceDirectionHandler>().AsSingle();
-            Container.BindInterfacesTo<AttackHandler>().AsSingle();
+            Container.BindInterfacesTo<MeleeCombatHandler>().AsSingle();
             Container.BindInterfacesTo<CollideHandler>().AsSingle();
             Container.BindInterfacesTo<DealDamageHandler>().AsSingle();
             Container.BindInterfacesTo<DestroyHandler>().AsSingle();
+            Container.BindInterfacesTo<ExplodeHandler>().AsSingle();
             Container.BindInterfacesTo<MoveHandler>().AsSingle();
             Container.BindInterfacesTo<ShootHandler>().AsSingle();
             Container.BindInterfacesTo<DealDamageEffectHandler>().AsSingle();
@@ -77,10 +79,11 @@ namespace DI
         {
             Container.Bind<VisualPipeline>().AsSingle();
             Container.BindInterfacesAndSelfTo<MoveVisualHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<DestroyVisualHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<DeathVisualHandler>().AsSingle();
             Container.BindInterfacesAndSelfTo<DealDamageVisualHandler>().AsSingle();
-            Container.BindInterfacesAndSelfTo<AttackVisualHandler>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MeleeCombatVisualHandler>().AsSingle();
             Container.BindInterfacesAndSelfTo<CollideVisualHandler>().AsSingle();
+            Container.BindInterfacesTo<ExplodeVisualHandler>().AsSingle();
         }
     }
 }

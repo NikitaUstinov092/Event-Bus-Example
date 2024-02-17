@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace Tasks.Visual
 {
-    public sealed class DestroyVisualTask : VisualTask
+    public sealed class DeathVisualTask : VisualTask
     {
         public override bool Sticky { get; protected set; } = false;
         
         private readonly TransformComponent _transform;
         private readonly float _duration;
-        public DestroyVisualTask(IEntity entity, float duration)
+        public DeathVisualTask(IEntity entity, float duration)
         {
             _transform = entity.Get<TransformComponent>();
             _duration = duration;

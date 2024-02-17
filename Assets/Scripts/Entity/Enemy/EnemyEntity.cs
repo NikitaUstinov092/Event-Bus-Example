@@ -18,7 +18,6 @@ namespace Entity.Enemy
             Add(new HitPointsComponent(model.Life.hitPoints, model.Life.maxHitPoints));
             Add(new DeathComponent(model.Life.isDead));
             Add(new DestroyComponent(gameObject));
-           
         }
     }
 }

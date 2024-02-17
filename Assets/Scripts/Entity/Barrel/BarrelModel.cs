@@ -1,6 +1,7 @@
 using System.Declarative.Scripts;
 using System.Declarative.Scripts.Attributes;
 using Entity.Model;
+using UnityEngine.Serialization;
 
 public class BarrelModel : DeclarativeModel
 {
@@ -10,6 +11,6 @@ public class BarrelModel : DeclarativeModel
     [Section]
     public Life Life;
     
-    [Section]
-    public Attack attack;
+    [FormerlySerializedAs("attack")] [Section]
+    public Attack Attack;
 }

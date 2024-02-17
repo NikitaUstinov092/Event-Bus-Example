@@ -4,7 +4,7 @@
 
     namespace TurnSystem.Handlers
      {
-         public sealed class AttackHandler : BaseHandler<MeleeCombatEvent>
+         public sealed class MeleeCombatHandler : BaseHandler<MeleeCombatEvent>
          {
              protected override void HandleEvent(MeleeCombatEvent evt)
              {
@@ -13,10 +13,11 @@
                      return;
                  }
             
+                 
                  foreach (var effect in weapon.Value.Effects)
                  {
                      effect.Source = evt.Entity;
-                     effect.Target = evt.Target;
+                     effect.Targets = new []{evt.Target};
                      EventBus.RaiseEvent(effect);
                  }
              }

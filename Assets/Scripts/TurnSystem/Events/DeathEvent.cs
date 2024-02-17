@@ -3,11 +3,11 @@
 
     namespace TurnSystem.Events
     {
-        public readonly struct DestroyEvent
+        public readonly struct DeathEvent
         {
             public readonly IEntity Entity;
 
-            public DestroyEvent(IEntity entity)
+            public DeathEvent(IEntity entity)
             {
                 Entity = entity;
             }

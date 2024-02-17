@@ -20,7 +20,7 @@ using Zenject;
                  
                  if (!_levelMap.Tiles.IsWalkable(evt.Coordinates)) // Если стоять нельзя убить сущность
                  {
-                     EventBus.RaiseEvent(new DestroyEvent(evt.Entity));
+                     EventBus.RaiseEvent(new DeathEvent(evt.Entity));
                  }
              }
          }

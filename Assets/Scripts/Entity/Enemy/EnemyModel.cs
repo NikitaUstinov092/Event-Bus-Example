@@ -1,7 +1,6 @@
 ﻿using System.Declarative.Scripts;
 using System.Declarative.Scripts.Attributes;
 using Entity.Model;
-using UnityEngine.Serialization;
 
 namespace Entity.Enemy
 {
@@ -13,7 +12,7 @@ namespace Entity.Enemy
         [Section]
         public Life Life;
         
-        [FormerlySerializedAs("MeleeAttack")] [Section]
+        [Section]
         public Attack attack;
         
     }

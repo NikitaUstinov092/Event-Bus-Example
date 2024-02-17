@@ -12,12 +12,15 @@
                  {
                      return;
                  }
-            
                  hitPoints.Value -= evt.Damage;
 
-                 if (hitPoints.Value <= 0)
+                 if (hitPoints.Value <= 0 && evt.Entity.TryGet(out DeathComponent _))
                  {
-                     EventBus.RaiseEvent(new DestroyEvent(evt.Entity));
+                     EventBus.RaiseEvent(new DeathEvent(evt.Entity));
+                 }
+                 else if (hitPoints.Value <= 0 && evt.Entity.TryGet(out ExplodeComponent explodeComponent))
+                 {
+                     EventBus.RaiseEvent(new ExplodeEvent(evt.Entity, explodeComponent.PostDeathWeaponEffect));
                  }
              }
          }

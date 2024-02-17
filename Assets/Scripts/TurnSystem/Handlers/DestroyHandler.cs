@@ -5,12 +5,12 @@
 
   namespace TurnSystem.Handlers
    {
-       public sealed class DestroyHandler : BaseHandler<DestroyEvent>
+       public sealed class DestroyHandler : BaseHandler<DeathEvent>
        {
            [Inject]
            private readonly LevelMap _levelMap;
         
-           protected override void HandleEvent(DestroyEvent evt)
+           protected override void HandleEvent(DeathEvent evt)
            {
                if (evt.Entity.TryGet(out DeathComponent deathComponent))
                {
@@ -19,12 +19,6 @@
 
                var coordinates = evt.Entity.Get<CoordinatesComponent>();
                _levelMap.Entities.RemoveEntity(coordinates.Value);
-               //
-               // // Visual
-               // if (evt.Entity.TryGet(out DestroyComponent destroyComponent))
-               // {
-               //     destroyComponent.Destroy();
-               // }
            }
        }
    }

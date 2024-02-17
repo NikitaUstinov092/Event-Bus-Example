@@ -5,7 +5,7 @@ using Zenject;
 
 namespace TurnSystem.Handlers.Visual
 {
-    public sealed class AttackVisualHandler : BaseHandler<MeleeCombatEvent>
+    public sealed class MeleeCombatVisualHandler : BaseHandler<MeleeCombatEvent>
     {
         [Inject]
         private readonly VisualPipeline _visualPipeline;

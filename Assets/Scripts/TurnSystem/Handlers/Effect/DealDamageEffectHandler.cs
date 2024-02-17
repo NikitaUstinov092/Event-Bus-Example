@@ -2,6 +2,7 @@
     using Entity.Components;
     using TurnSystem.Events;
     using TurnSystem.Events.Effect;
+    using UnityEngine;
 
     namespace TurnSystem.Handlers.Effect
      {
@@ -9,14 +10,13 @@
          {
              protected override void HandleEvent(DealDamageEffectEvent evt)
              {
+                 Debug.Log($"{evt.Source} {evt.Targets} РЕЗУЛЬТАТ");
                  var damage = evt.extraDamage;
-
-                 if (evt.Source.TryGet(out StatsComponent stats))
+                 foreach (var entity in evt.Targets)
                  {
-                     damage += stats.Strength;
+                     EventBus.RaiseEvent(new DealDamageEvent(entity, damage));
                  }
-            
-                 EventBus.RaiseEvent(new DealDamageEvent(evt.Target, damage));
+                
              }
          }
      }
