@@ -18,6 +18,5 @@ public class BarrelEntity : MonoEntityBase
             Add(new ExplodeComponent(model.Life.isDead, model.Attack.Weapon));
             Add(new TeamComponent(new AtomicVariable<int>(1)));
             Add(new DestroyComponent(gameObject));
-           
         }
 }

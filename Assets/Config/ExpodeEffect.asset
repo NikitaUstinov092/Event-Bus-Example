@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd300e009f147eaaed4e277fea30455, type: 3}
-  m_Name: ExpodeWeopon
+  m_Name: ExpodeEffect
   m_EditorClassIdentifier: 
   Effects:
   - rid: 4316479641768951809

@@ -14,4 +14,4 @@ namespace TurnSystem.Handlers.Visual
             _visualPipeline.AddTask(new DeathVisualTask(evt.Entity, 0.3f));
         }
     }
-}
+}   

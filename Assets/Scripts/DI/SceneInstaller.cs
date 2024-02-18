@@ -20,24 +20,26 @@ namespace DI
     {
         public override void InstallBindings()
         {
+            ConfigureCommon();
             ConfigureLevel();
             ConfigurePlayer();
+            ConfigureEnemies();
             ConfigureHandlers();
             ConfigureTurn();
+            ConfigureTasks();
             ConfigureVisual();
-           
+        }
+        private void ConfigureCommon()
+        {
+            Container.Bind<EntityInstaller>().FromComponentInHierarchy().AsSingle();
+        }
+
+        private void ConfigureTasks()
+        {
             Container.Bind<PlayerTurnTask>().AsSingle();
             Container.Bind<VisualTurnTask>().AsSingle();
             Container.Bind<ZombieTaskInstaller>().AsSingle();
-            Container.Bind<DeadEntityCleanerTask>().AsSingle();
-            Container.Bind<ZombieTaskSpawner>().AsSingle();
-            
-            Container.Bind<EnemyStorage>().AsSingle();
-            Container.BindInterfacesAndSelfTo<EnemyStorageManager>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<EntityInstaller>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<ZombieSpawner>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<EntityObjectDestroyer>().FromComponentInHierarchy().AsSingle();
-            
+            Container.Bind<ZombieSpawnerTask>().AsSingle();
         }
 
         private void ConfigureLevel()
@@ -51,9 +53,14 @@ namespace DI
         {
             Container.BindInterfacesTo<KeyboardInput>().FromComponentInHierarchy().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerService>().FromComponentInHierarchy().AsSingle();
-          
         }
-
+        
+        private void ConfigureEnemies()
+        {
+            Container.Bind<EnemyStorage>().AsSingle();
+            Container.Bind<ZombieSpawner>().FromComponentInHierarchy().AsSingle();
+        }
+        
         private void ConfigureHandlers()
         {
             Container.Bind<EventBus>().AsSingle();
@@ -63,7 +70,7 @@ namespace DI
             Container.BindInterfacesTo<MeleeCombatHandler>().AsSingle();
             Container.BindInterfacesTo<CollideHandler>().AsSingle();
             Container.BindInterfacesTo<DealDamageHandler>().AsSingle();
-            Container.BindInterfacesTo<DestroyHandler>().AsSingle();
+            Container.BindInterfacesTo<DeathHandler>().AsSingle();
             Container.BindInterfacesTo<ExplodeHandler>().AsSingle();
             Container.BindInterfacesTo<MoveHandler>().AsSingle();
             Container.BindInterfacesTo<ShootHandler>().AsSingle();
@@ -75,7 +82,8 @@ namespace DI
         private void ConfigureTurn()
         {
             Container.Bind<TurnPipeline>().AsSingle();
-            Container.BindInterfacesTo<PipelineTaskManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PipelineTaskManager>().AsSingle();
+            Container.BindInterfacesTo<PipelineTaskRunner>().AsSingle();
         }
 
         private void ConfigureVisual()

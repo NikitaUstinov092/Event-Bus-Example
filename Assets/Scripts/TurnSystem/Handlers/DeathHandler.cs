@@ -5,7 +5,7 @@
 
   namespace TurnSystem.Handlers
    {
-       public sealed class DestroyHandler : BaseHandler<DeathEvent>
+       public sealed class DeathHandler : BaseHandler<DeathEvent>
        {
            [Inject]
            private readonly LevelMap _levelMap;

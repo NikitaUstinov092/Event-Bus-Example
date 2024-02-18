@@ -23,15 +23,15 @@ namespace TurnSystem.Events
             var coordinatesAround = new CoordinatesAroundDetector().GetCoordinatesAround(explodeSourceCoordinates);
             var entitiesAround = new ClosedEntitySearcher(_levelMap).GetClosedEntities(coordinatesAround);
             
+            var coordinates = evt.Entity.Get<CoordinatesComponent>();
+            _levelMap.Entities.RemoveEntity(coordinates.Value);
+            
             foreach (var effect in evt.PostDeathEffect.Effects)
             {
                 effect.Source = evt.Entity;
                 effect.Targets = entitiesAround;
                 EventBus.RaiseEvent(effect);
             }
-            
-            var coordinates = evt.Entity.Get<CoordinatesComponent>();
-            _levelMap.Entities.RemoveEntity(coordinates.Value);
         }
     }
 }

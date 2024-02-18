@@ -2,7 +2,6 @@ using Entity;
 using Entity.Components;
 using Level;
 using TurnSystem.Events;
-using TurnSystem.Events.Effect;
 using Zenject;
 
 namespace TurnSystem.Handlers

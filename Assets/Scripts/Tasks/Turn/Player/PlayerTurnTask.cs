@@ -42,8 +42,8 @@ namespace Tasks.Turn
         private void OnShootPreformed(Vector2Int direction)
         {
             RemoveListeners();
-            
             _eventBus.RaiseEvent(new ShootEvent(_player, direction, 5));
+            Debug.Log("<color=#" + ColorUtility.ToHtmlStringRGB(Color.green) + $">ВЫСТРЕЛ В НАПРАВЛЕНИЕ {direction}</color>");
             Finish();
         }
 

@@ -2,13 +2,14 @@
 
 namespace Tasks.Turn.Common
 {
-    public class DeadEntityCleanerTask: Task
+    public class ZombieSpawnerTask: Task
     {
         [Inject]
-        private EntityObjectDestroyer _cleaner;
+        private ZombieSpawner _zombieSpawner;
+        
         protected override void OnRun()
         {
-            _cleaner.DestroyDeadObjects();
+            _zombieSpawner.CreateZombie();
             Finish();
         }
     }

@@ -10,8 +10,7 @@ namespace Entity.Components
             get => _coordinates.Value;
             set
             {
-                _coordinates.Value = value; 
-                // Debug.Log(_coordinates.Value);
+                _coordinates.Value = value;
             }
         }
 

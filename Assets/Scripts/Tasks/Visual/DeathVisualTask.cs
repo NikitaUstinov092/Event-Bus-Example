@@ -1,4 +1,6 @@
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Entity;
 using Entity.Components;
 using UnityEngine;
@@ -21,6 +23,5 @@ namespace Tasks.Visual
         {
             _transform.Value.DOScale(Vector3.zero, _duration).OnComplete(Finish);
         }
-        
     }
 }
